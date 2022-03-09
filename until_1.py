@@ -21,4 +21,4 @@ while n >= k:
 while n > 1:
     n -= 1
     count += 1
-print(n, count)
+print(count)
