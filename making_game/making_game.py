@@ -16,12 +16,12 @@ def find_pos(x, y, z):
         else :
             count += 1
         if count == 4:
-            if index == 0:
-                c_x = c_x + dir_case[index][1]
-                c_y = c_y + dir_case[index][0]
-                if map_pos[c_x][c_y] == 1:
-                    break   
-        
+            c_x = c_x + dir_case[index][1]
+            c_y = c_y + dir_case[index][0]
+            if map_pos[c_x][c_y] == 0:
+                find_pos(c_x,c_y, index)
+            else:
+                break
 r, c = map(int, input().split())
 pos_x, pos_y, dir = map(int, input().split())
 map_pos = []
@@ -38,4 +38,4 @@ start_pos = map_pos[pos_x][pos_y]
 twist = dir_case[dir]
 twist = cc_list.index(twist)
 find_pos(pos_x, pos_y, twist)
-print(check_point)
+print(len(check_point))
